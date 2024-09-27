@@ -4,7 +4,6 @@
      require_once dirname(__FILE__)."/presentation/AuthorPresentation.php";
      require_once dirname(__FILE__)."/presentation/BookPresentation.php";
 
-
     function askQuestion($question)
     {
       echo $question;
@@ -18,6 +17,7 @@
     
     function library_management()
     {
+      global $autheurPresentation, $livrePresentation;
       echo chr(27) . chr(91) . 'H' . chr(27) . chr(91) . 'J';
       echo "bienvenu dans bilbliotheque manager program\n\n";
       $exitAutheurs = false;
@@ -54,7 +54,7 @@
                         $autheurPresentation->viewAutheurs();
                       break;
                       case 'a':    
-                        $autheurPresentation->ajoutAutheur();
+                          $autheurPresentation->ajoutAutheur();
                       break;
                       case 'm':
                         $autheurPresentation->modifierAutheur();
