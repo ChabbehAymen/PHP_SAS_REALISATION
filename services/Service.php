@@ -32,7 +32,7 @@ abstract class Service
      */
     public function remove(int $id):bool
     {
-        return $this->DAO->remove($id);
+        return $this->DAO->delete();
     }
     /**
      * Finds object in db by it's id

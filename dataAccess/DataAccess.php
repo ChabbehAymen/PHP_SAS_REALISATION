@@ -1,8 +1,8 @@
-<?php 
-require_once dirname(dirname(__FILE__))."/data/DataBase.php";
+        <?php 
+        require_once dirname(dirname(__FILE__))."/data/DataBase.php";
 
-abstract class DataAccess
-{
+        abstract class DataAccess
+        {
     protected array $data;
     private DataBase $db;
 
