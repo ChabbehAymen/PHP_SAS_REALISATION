@@ -10,11 +10,6 @@ abstract class DataAccess
          $this->db = new DataBase();
          $this->data = $this->db->$table;
     }
-    // private function getTable(string $table){
-    //     if (condition) {
-    //         # code...
-    //     }
-    // }
     /**
      * return data [array of an entity objects]
      * @return array

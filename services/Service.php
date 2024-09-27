@@ -14,7 +14,7 @@ abstract class Service
      */
     public function getAll(): array
     {
-        return $this->DAO->getAll();
+        return $this->DAO->getData();
     }
     /**
      * Create new entity object and insert it to db
