@@ -1,5 +1,5 @@
 <?php
-  require_once dirname(__FILE__)."/../services/BookService.php";
+  require_once dirname(__FILE__)."/../services/BooksService.php";
   require_once dirname(__FILE__)."/../entities/Book.php";
 
 class LivrePresentation{
@@ -10,21 +10,20 @@ class LivrePresentation{
 
     public function __construct(){
       $this->BookService = new BookService();
-      $this->Books = $this->BookService->ge;
+      $this->Books = $this->BookService->getAll();
     }
 
     public function viewlistLivres()
     {
       echo "\nViewing the list of Books\n";
   
-      $this->BookService->getListLivres();
   
-      if (!empty($livres)) {
-        foreach ($livres as $livre) {
+      if (!empty($this->Books)) {
+        foreach ($this->Books as $book) {
           echo "---------------------------------\n";
-          echo "ISBN: " .$livre->ISBN . "\n";
-          echo "Title:  " .$livre->title . " \n";
-          echo "Date de Publication:  " .$livre->datePub . " \n";
+          echo "ISBN: " .$book->ISBN . "\n";
+          echo "Title:  " .$book->title . " \n";
+          echo "Date de Publication:  " .$book->datePub . " \n";
         }
       } else {
         echo "No livres available.\n";
@@ -49,8 +48,8 @@ class LivrePresentation{
         return;
       }
   
-      $Nouveaulivre = new Book($ISBN , $titre,$datePub);
-      $this->BookService->ajouterLivre($Nouveaulivre);
+      $NewBook = new Book($ISBN , $titre,$datePub);
+      $this->BookService->add($NewBook);
       
       echo "autheur ajouter avec success \n\n";
     }

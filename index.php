@@ -1,8 +1,8 @@
 <?php
 
 
-     require_once dirname(__FILE__)."/presentation/autheurPresentation.php";
-     require_once dirname(__FILE__)."/presentation/livrePresentation.php";
+     require_once dirname(__FILE__)."/presentation/AuthorPresentation.php";
+     require_once dirname(__FILE__)."/presentation/BookPresentation.php";
 
 
     function askQuestion($question)

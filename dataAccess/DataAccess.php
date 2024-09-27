@@ -4,12 +4,17 @@ require_once dirname(dirname(__FILE__))."/data/DataBase.php";
 abstract class DataAccess
 {
     protected array $data;
-    protected DataBase $db;
+    private DataBase $db;
 
-    function construct(array $data) {
+    function construct(string $table) {
          $this->db = new DataBase();
-         $this->data = $data;
+         $this->data = $this->db->$table;
     }
+    // private function getTable(string $table){
+    //     if (condition) {
+    //         # code...
+    //     }
+    // }
     /**
      * return data [array of an entity objects]
      * @return array

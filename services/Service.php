@@ -1,13 +1,12 @@
 <?php
-require_once(dirname(dirname(__FILE__)) . "/repository/BooksRepo.php");
-require_once(dirname(dirname(__FILE__)) . "/dataAccess/BookDao.php");
+require_once(dirname(dirname(__FILE__)) . "/dataAccess/DataAccess.php");
 
-class Service
+abstract class Service
 {
-    private BooksRepo $repo;
+    private DataAccess $DAO;
 
-    public function __construct(Repository $repo) {
-        $this->repo = $repo;
+    public function __construct(DataAccess $DAO) {
+        $this->DAO = $DAO;
     }
     /**
      * Gets all data from db
@@ -15,7 +14,7 @@ class Service
      */
     public function getAll(): array
     {
-        return $this->repo->getAll();
+        return $this->DAO->getAll();
     }
     /**
      * Create new entity object and insert it to db
@@ -24,7 +23,7 @@ class Service
      */
     public function add(object $obj):bool
     {
-        return $this->repo->add($obj);
+        return $this->DAO->add($obj);
     }
     /**
      * deletes the object form db by it's id
@@ -33,7 +32,7 @@ class Service
      */
     public function remove(int $id):bool
     {
-        return $this->repo->remove($id);
+        return $this->DAO->remove($id);
     }
     /**
      * Finds object in db by it's id
@@ -42,6 +41,6 @@ class Service
      */
     public function find(int $id): object
     {
-        return $this->repo->find($id);
+        return $this->DAO->find($id);
     }
 }
