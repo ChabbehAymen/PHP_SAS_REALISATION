@@ -4,12 +4,12 @@ require_once dirname(dirname(__FILE__))."/data/DataBase.php";
 abstract class DataAccess
 {
     protected array $data;
-    private DataBase $db;
+    protected DataBase $db;
     private String $table;
 
-    function construct(String $table) {
+    function construct(array $data) {
          $this->db = new DataBase();
-         $this->table = $table;
+         $this->data = $data;
     }
     /**
      * return data [array of an entity objects]
@@ -17,7 +17,7 @@ abstract class DataAccess
      */
     public function getData(): array
     {
-        return $this->db->getData($this->table);;
+        return $this->data;
     }
     /**
      * push item to the database 
@@ -26,7 +26,7 @@ abstract class DataAccess
      * @return bool
      */
     public function add(object $data): bool{
-        $this->db->push($data, $this->table);
+        array_push($this->data, $data);
         return $this->db->save();
     }
     /**
