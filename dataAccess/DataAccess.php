@@ -5,7 +5,6 @@ abstract class DataAccess
 {
     protected array $data;
     protected DataBase $db;
-    private String $table;
 
     function construct(array $data) {
          $this->db = new DataBase();

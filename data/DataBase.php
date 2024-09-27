@@ -15,9 +15,9 @@ class DataBase
         $data = $this->fetch();
         if($data)
         {
-        $this->books = $data->getData('books');
-        $this->authors = $data->getData('authors');
-        $this->readers = $data->getData('readers');
+        $this->books = $data->books;
+        $this->authors = $data->authors;
+        $this->readers = $data->readers;
     }
     }
     /**

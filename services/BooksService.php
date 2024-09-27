@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(dirname(__FILE__)) . "/controller/Controller.php");
+require_once(dirname(dirname(__FILE__)) . "/services/Service.php");
 
 class BooksController extends Controller
 {

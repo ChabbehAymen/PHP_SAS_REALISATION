@@ -1,7 +1,7 @@
 <?php
 
-require_once dirname(__FILE__) . "/../services/autheurServices.php";
-require_once dirname(__FILE__) . "/../entities/autheur.php";
+require_once dirname(__FILE__) . "/../services/AuthorsController.php";
+require_once dirname(__FILE__) . "/../entities/Autheur.php";
 
 class AutheurPresentation 
 {

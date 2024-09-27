@@ -10,6 +10,11 @@
       echo $question;
       return trim(fgets(STDIN));
     }
+
+    $autheurPresentation = new AutheurPresentation();
+    $livrePresentation = new LivrePresentation();
+
+    
     
     function library_management()
     {
@@ -46,20 +51,16 @@
                   $autheuraction = askQuestion("Your choice: ");
                   switch (strtolower(  $autheuraction)) {
                       case 'l':
-                      $autheurPresentation = new AutheurPresentation();
                       $autheurPresentation->viewAutheurs();
                       break;
                       case 'a':    
-                          $bookPresentation = new AutheurPresentation();
                           $bookPresentation->ajoutAutheur();
                       break;
                       case 'm':
-                        $autheurPresentation = new AutheurPresentation();
                         $autheurPresentation->modifierAutheur();
                         
                       break;
                       case 's':
-                        $autheurPresentation = new AutheurPresentation();
                         $autheurPresentation->removeAutheurs();
                       break;
                       case 'exit':
@@ -86,11 +87,9 @@
                       $livreaction = askQuestion("Your choice: ");
                       switch (strtolower(  $livreaction)) {
                           case 'l':
-                          $livrePresentation = new LivrePresentation();
                           $livrePresentation->viewlistLivres();
                           break;
                           case 'a':
-                              $livrePresentation = new LivrePresentation();
                               $livrePresentation->ajoutLivre();
                           break;
                           case 'exit':
