@@ -1,15 +1,23 @@
 <?php
-  require_once dirname(__FILE__)."/../bibliothequeServices/livreServices.php";
-  require_once dirname(__FILE__)."/../entities/livre.php";
+  require_once dirname(__FILE__)."/../services/BookService.php";
+  require_once dirname(__FILE__)."/../entities/Book.php";
 
 class LivrePresentation{
+
+
+    private $BookService;
+    private $Books = [];
+
+    public function __construct(){
+      $this->BookService = new BookService();
+      $this->Books = $this->BookService->ge;
+    }
 
     public function viewlistLivres()
     {
       echo "\nViewing the list of Books\n";
   
-      $livreService = new LivreServices();
-      $livres =  $livreService->getListLivres();
+      $this->BookService->getListLivres();
   
       if (!empty($livres)) {
         foreach ($livres as $livre) {
@@ -41,9 +49,8 @@ class LivrePresentation{
         return;
       }
   
-      $Nouveaulivre = new Livre($ISBN , $titre,$datePub);
-      $livreServices = new LivreServices();
-      $livreServices->ajouterLivre($Nouveaulivre);
+      $Nouveaulivre = new Book($ISBN , $titre,$datePub);
+      $this->BookService->ajouterLivre($Nouveaulivre);
       
       echo "autheur ajouter avec success \n\n";
     }

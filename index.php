@@ -51,10 +51,10 @@
                   $autheuraction = askQuestion("Your choice: ");
                   switch (strtolower(  $autheuraction)) {
                       case 'l':
-                      $autheurPresentation->viewAutheurs();
+                        $autheurPresentation->viewAutheurs();
                       break;
                       case 'a':    
-                          $bookPresentation->ajoutAutheur();
+                        $autheurPresentation->ajoutAutheur();
                       break;
                       case 'm':
                         $autheurPresentation->modifierAutheur();
