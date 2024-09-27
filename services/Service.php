@@ -2,7 +2,7 @@
 require_once(dirname(dirname(__FILE__)) . "/repository/BooksRepo.php");
 require_once(dirname(dirname(__FILE__)) . "/dataAccess/BookDao.php");
 
-class Controller
+class Service
 {
     private BooksRepo $repo;
 

@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(dirname(__FILE__)) . "/services/Service.php");
 
-class ReadersController extends Controller
+class ReadersService extends Service
 {
     public function __construct() {
         parent::__construct(new ReaderRepo(new ReaderDao()));
