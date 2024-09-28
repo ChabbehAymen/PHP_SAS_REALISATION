@@ -14,6 +14,7 @@ class Reader
         $this->name = $name;
         $this->$lastName = $$lastName;
         $this->address = $address;
+        $this->books = array();
     }
 
 
@@ -110,8 +111,8 @@ class Reader
      *
      * @return  void
      */ 
-    public function setBooks(array $books): void
+    public function addBook(Book $book): void
     {
-        $this->books = $books;
+        $this->books[] = $book;
     }
 }

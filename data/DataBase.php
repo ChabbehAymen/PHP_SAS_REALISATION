@@ -7,6 +7,7 @@ class DataBase
 	public array $books = [];
 	public array $authors = [];
 	public array $readers = [];
+	public array $loans = [];
     private $filePath;
 
     public function __construct()

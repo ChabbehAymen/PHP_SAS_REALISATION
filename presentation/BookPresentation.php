@@ -6,7 +6,7 @@ class LivrePresentation{
 
 
     private $BookService;
-    private $Books = [];
+    private $Books;
 
     public function __construct(){
       $this->BookService = new BookService();
@@ -21,9 +21,9 @@ class LivrePresentation{
       if (!empty($this->Books)) {
         foreach ($this->Books as $book) {
           echo "---------------------------------\n";
-          echo "ISBN: " .$book->ISBN . "\n";
-          echo "Title:  " .$book->title . " \n";
-          echo "Date de Publication:  " .$book->datePub . " \n";
+          echo "ISBN: " .$book->getISBN() . "\n";
+          echo "Title:  " .$book->getTitle() . " \n";
+          echo "Date de Publication:  " .$book->getPubDate() . " \n";
         }
       } else {
         echo "No livres available.\n";
