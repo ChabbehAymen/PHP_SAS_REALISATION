@@ -5,12 +5,12 @@
 class LivrePresentation{
 
 
-    private $BookService;
+    private $bookService;
     private $Books;
 
     public function __construct(){
-      $this->BookService = new BookService();
-      $this->Books = $this->BookService->getAll();
+      $this->bookService = new BookService();
+      $this->Books = $this->bookService->getAll();
     }
 
     public function viewlistLivres()
@@ -49,19 +49,30 @@ class LivrePresentation{
       }
   
       $NewBook = new Book($ISBN , $titre,$datePub);
-      $this->BookService->add($NewBook);
+      $this->bookService->add($NewBook);
       
       echo "autheur ajouter avec success \n\n";
     }
 
+    public function deleteBook(): void
+    {
+      $title = askQuestion("Enter Books title : ");
+      if($title !== '')
+      {
+        $deleted = $this->bookService->remove($title);
+        if ($deleted) echo 'Item Delted Successfully';
+        else echo 'No Item Foud With This Title';
+        
+      }else echo 'Input sould not be empty';
+    }
 
+    public function updateBook(): void
+    {
+      $prope = askQuestion("What Property To Update (ISBN, Title, PubDate): ");
+      $oldValue = askQuestion("What is The Old Value : ");
+      $newValue = askQuestion("Enter The New Value : ");
+      $this->bookService->update(array('key'=>$oldValue, 'value'=>$newValue), strtoupper($prope) =='ISBN'?strtoupper($prope):strtolower($prope));
+    }
 
 
 }
-
-
-
-
-
-
-?>
