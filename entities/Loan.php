@@ -5,6 +5,7 @@ class Loan
     private string $startDate;
     private string $bookCheckDate;
     private string $retunDate;
+    private Reader $reader;
 
     public function __construct(string $startDate, string $bookCheckDate, string $retunDate) {
         $this->id = time();
@@ -66,5 +67,23 @@ class Loan
     public function setRetunDate($retunDate): void
     {
         $this->retunDate = $retunDate;
+    }
+
+    /**
+     * Get the value of reader
+     */ 
+    public function getReader()
+    {
+        return $this->reader;
+    }
+
+    /**
+     * Set the value of reader
+     *
+     * @return  self
+     */ 
+    public function setReader($reader): void
+    {
+        $this->reader = $reader;
     }
 }

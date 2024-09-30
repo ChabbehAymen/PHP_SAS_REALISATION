@@ -1,5 +1,6 @@
 <?php
 require_once(dirname(dirname(__FILE__)) . "/services/Service.php");
+require_once(dirname(dirname(__FILE__)) . "/services/LoanService.php");
 require_once(dirname(dirname(__FILE__)) . "/services/BooksService.php");
 require_once(dirname(dirname(__FILE__)) . "/dataAccess/ReaderDao.php");
 

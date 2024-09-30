@@ -6,7 +6,7 @@ class Book
     private String $title;
     private String $pubDate;
     private Array $authors;
-    private Reader $reader;
+    private Reader|null $reader = null;
 
 
     public function __construct(String $ISBN, String $title, String $pubDate) {
@@ -14,6 +14,7 @@ class Book
         $this->ISBN = $ISBN;
         $this->title = $title;
         $this->pubDate = $pubDate;
+        $this->authors = array();
     }
 
     /**
@@ -115,7 +116,7 @@ class Book
     /**
      * Get the value of readers
      */ 
-    public function getReaders(): Reader
+    public function getReader(): Reader|null
     {
         return $this->reader;
     }
@@ -125,7 +126,7 @@ class Book
      *
      * @return  void
      */ 
-    public function setReaders(Reader $reader): void
+    public function setReader(Reader $reader): void
     {
         $this->reader = $reader;
     }

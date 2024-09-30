@@ -40,34 +40,17 @@ var_dump($listLoan);
       </thead>
       <tbody class="bg-white divide-y divide-gray-200">
         <?php foreach($listBook as $book):?>
-        <tr>
           <td class="px-6 py-4 whitespace-nowrap"><?= $book->getISBN()?></td>
           <td class="px-6 py-4 whitespace-nowrap"><?= $book->getTitle()?></td>
           <td class="px-6 py-4 whitespace-nowrap"><?= $book->getPubDate()?></td>
+          <td class="px-6 py-4 whitespace-nowrap"><?= $book->getReader()===null?'Disponible':'Loaned To'.$book->getReader()->getName()?></td>
           <td class="px-6 py-4 whitespace-nowrap">
             <button class="text-indigo-600 hover:text-indigo-900">Edit</button>
             <button class="ml-4 text-red-600 hover:text-red-900">Delete</button>
+            <?= $book->getReader()===null?'<button class="ml-4 text-red-600 hover:text-red-900" onclick="loan()">Loan</button>':''?>
           </td>
         </tr>
         <?php endforeach; ?>
-        <!-- <tr>
-          <td class="px-6 py-4 whitespace-nowrap">Jane Smith</td>
-          <td class="px-6 py-4 whitespace-nowrap">jane.smith@example.com</td>
-          <td class="px-6 py-4 whitespace-nowrap">User</td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <button class="text-indigo-600 hover:text-indigo-900" >Edit</button>
-            <button class="ml-4 text-red-600 hover:text-red-900">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <td class="px-6 py-4 whitespace-nowrap">David Lee</td>
-          <td class="px-6 py-4 whitespace-nowrap">david.lee@example.com</td>
-          <td class="px-6 py-4 whitespace-nowrap">Manager</td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <button class="text-indigo-600 hover:text-indigo-900">Edit</button>
-            <button class="ml-4 text-red-600 hover:text-red-900">Delete</button>
-          </td>
-        </tr> -->
       </tbody>
     </table>
   </div>
